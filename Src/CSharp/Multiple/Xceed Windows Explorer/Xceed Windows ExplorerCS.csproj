@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>10.0.20826</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{32B35480-997B-4D27-9B75-7BF4D4F60726}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Xceed Windows Explorer</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Xceed.FileSystem.Samples</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>Xceed.FileSystem.Samples.EntryPoint</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Management">
+      <Name>System.Management</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="Xceed.Compression">
+      <HintPath>..\..\..\..\Bin\Debug\Xceed.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Compression.Formats">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Bin\Debug\Xceed.Compression.Formats.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.FileSystem">
+      <HintPath>..\..\..\..\Bin\Debug\Xceed.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Ftp">
+      <HintPath>..\..\..\..\Bin\Debug\Xceed.Ftp.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.GZip">
+      <HintPath>..\..\..\..\Bin\Debug\Xceed.GZip.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.SmartUI.v3.6">
+      <HintPath>..\..\..\..\..\..\..\SmartUI\Dev\Trunk\Bin\Debug\Xceed.SmartUI.v3.6.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.SmartUI.Controls.v3.6">
+      <HintPath>..\..\..\..\..\..\..\SmartUI\Dev\Trunk\Bin\Debug\Xceed.SmartUI.Controls.v3.6.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.SmartUI.UIStyle.v3.6">
+      <HintPath>..\..\..\..\..\..\..\SmartUI\Dev\Trunk\Bin\Debug\Xceed.SmartUI.UIStyle.v3.6.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Tar">
+      <HintPath>..\..\..\..\Bin\Debug\Xceed.Tar.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Zip">
+      <HintPath>..\..\..\..\Bin\Debug\Xceed.Zip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+    <Content Include="Resources\Images\Copy_24x24.png" />
+    <Content Include="Resources\Images\Cut_24x24.png" />
+    <Content Include="Resources\Images\Delete_24x24.png" />
+    <Content Include="Resources\Images\Folders_24x24.png" />
+    <Content Include="Resources\Images\GoOver_20x20.png" />
+    <Content Include="Resources\Images\Go_20x20.png" />
+    <Content Include="Resources\Images\NewFile_24x24.png" />
+    <Content Include="Resources\Images\NewFolder_24x24.png" />
+    <Content Include="Resources\Images\Paste_24x24.png" />
+    <Content Include="Resources\Images\Rename_24x24.png" />
+    <Content Include="Resources\Images\Up_24x24.png" />
+    <Content Include="Resources\Images\Views_24x24.png" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EntryPoint.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FtpConnectionInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Options.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PathLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProgressionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TemporaryFileCopyActionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utils\API\Win32.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\FileSystem\AutoDeleter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\FileSystem\FtpConnectionFolder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\FileSystem\FtpConnectionsFolder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\FileSystem\MyComputerFolder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\Icons\IconCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\Icons\IconCacheVault.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\Icons\IconFinder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\Icons\IconWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\Icons\ShellIconEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\ListView\AbstractListViewItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\ListView\CustomListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\ListView\FileListViewItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\ListView\FolderListViewItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\ListView\GZipArchiveListViewItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\ListView\ListViewIconUpdater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\ListView\ListViewSortComparer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\ListView\TarArchiveListViewItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\ListView\ZipArchiveListViewItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\TreeView\AbstractTreeViewNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\TreeView\FolderTreeViewNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\TreeView\FtpConnectionsTreeViewNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\TreeView\GZipArchiveTreeViewNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\TreeView\MyComputerTreeViewNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\TreeView\TarArchiveTreeViewNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\TreeView\TreeViewIconUpdater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utils\TreeView\ZipArchiveTreeViewNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="FtpConnectionInformationForm.resx">
+      <DependentUpon>FtpConnectionInformationForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputPasswordForm.resx">
+      <DependentUpon>InputPasswordForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressionForm.resx">
+      <DependentUpon>ProgressionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertyForm.resx">
+      <DependentUpon>PropertyForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\AscendingSort.ico" />
+    <EmbeddedResource Include="Resources\Images\ClosedFtpFolder.ico" />
+    <EmbeddedResource Include="Resources\Images\ClosedZipFolder.ico" />
+    <EmbeddedResource Include="Resources\Images\DescendingSort.ico" />
+    <EmbeddedResource Include="Resources\Images\OpenedFtpFolder.ico" />
+    <EmbeddedResource Include="Resources\Images\OpenedZipFolder.ico" />
+    <EmbeddedResource Include="TemporaryFileCopyActionForm.resx">
+      <DependentUpon>TemporaryFileCopyActionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
