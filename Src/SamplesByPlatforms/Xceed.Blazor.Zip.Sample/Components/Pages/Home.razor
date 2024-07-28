@@ -1,0 +1,82 @@
+﻿@page "/"
+@using System.IO
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.JSInterop
+@using Xceed.Zip
+@rendermode InteractiveServer
+
+<h1>Select some files to compress and save as .zip</h1>
+
+<div style="display: flex; margin-top: 50px">
+    <div style="display: flex; flex-direction: column; margin-right: 20px;">
+        <label for="formFileMultiple" class="form-label">Select files (10MB max. 20 items)</label>
+        <InputFile OnChange="HandleFileSelection" multiple class="form-control" type="file" id="formFileMultiple" maxAllowedSize="10485760" maxAllowedFiles="12"/>
+        <button class="btn btn-primary" @onclick="CompressFiles" style="margin-top: 10px;">Save elements as Zip</button>
+    </div>
+    <div style="border: 1px solid #FE671A; padding: 10px; width: 50%; overflow-y: auto;">
+        <h4>Selected Files</h4>
+        <ul class="list-group">
+            @foreach( var file in selectedFiles )
+            {
+              <li class="list-group-item">@file.Name (@file.Size / 1024) KB</li>
+            }
+        </ul>
+    </div>
+</div>
+
+@code {
+    private List<IBrowserFile> selectedFiles = new List<IBrowserFile>();
+    [Inject] private IJSRuntime JSRuntime { get; set; }
+
+    private void HandleFileSelection( InputFileChangeEventArgs e )
+    {
+        selectedFiles = e.GetMultipleFiles(20).ToList();
+    }
+
+    private async Task CompressFiles()
+    {
+        try
+        {
+            if( selectedFiles.Count == 0 )
+            {
+                return;
+            }
+
+            var outputZipPath = Path.Combine( Path.GetTempPath(), "compressed_files.zip" );
+
+            Xceed.FileSystem.AbstractFile zipFile = new Xceed.FileSystem.DiskFile( outputZipPath );
+
+            if( zipFile.Exists )
+                zipFile.Delete();
+
+            var zip = new ZipArchive( zipFile );
+            foreach( var file in selectedFiles )
+            {
+                var tempFilePath = Path.Combine( Path.GetTempPath(), file.Name );
+                if( file.Size <= 10485760 )
+                {
+                    using( var stream = file.OpenReadStream( maxAllowedSize: 10485760 ) ) // 10 MB limit per file
+                    using( var fileStream = File.Create( tempFilePath ) )
+                    {
+                        await stream.CopyToAsync( fileStream );
+                    }
+
+                    var diskFile = new Xceed.FileSystem.DiskFile( tempFilePath );
+                    diskFile.CopyTo( zip, true );
+
+                    File.Delete( tempFilePath ); // Clean up the temporary file
+                }                
+            }
+
+            var fileBytes = await File.ReadAllBytesAsync( outputZipPath );
+            await JSRuntime.InvokeVoidAsync( "BlazorDownloadFile", "compressed_files.zip", Convert.ToBase64String( fileBytes ) );
+
+            // Clean up
+            File.Delete( outputZipPath );
+        }
+        catch( Exception ex )
+        {
+            await JSRuntime.InvokeVoidAsync( "alert", ex.Message );
+        }
+    }
+}

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<base href="/" />
+	<link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+	<link rel="stylesheet" href="app.css" />
+	<link rel="stylesheet" href="Xceed.Blazor.Zip.Sample.styles.css" />
+	<link rel="icon" type="image/png" href="logox.png" />
+	<title>Xceed Zip Sample</title>
+	<HeadOutlet />
+</head>
+
+<body>
+	<Routes />
+	<script src="_framework/blazor.web.js"></script>
+	<script>
+		function BlazorDownloadFile(filename, base64) {
+			const link = document.createElement('a');
+			link.download = filename;
+			link.href = 'data:application/octet-stream;base64,' + base64;
+			document.body.appendChild(link);
+			link.click();
+			document.body.removeChild(link);
+		}
+		window.pickFolder = async () => {
+			try {
+				const directoryHandle = await window.showDirectoryPicker();
+				const folderPath = directoryHandle.name;
+				return folderPath;
+			} catch (error) {
+				console.error("Error selecting folder:", error);
+				return "";
+			}
+		};
+		window.consoleLog = (message) => {
+			console.log(message);
+		};
+	</script>
+</body>
+</html>

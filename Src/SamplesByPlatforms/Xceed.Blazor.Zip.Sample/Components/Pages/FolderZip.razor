@@ -1,0 +1,81 @@
+﻿@page "/folderzip"
+@using System.IO
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.JSInterop
+@using Xceed.Zip
+@rendermode InteractiveServer
+
+<h1>Select a folder and save as .zip</h1>
+
+<div style="display: flex; margin-top: 50px">
+    <div style="display: flex; flex-direction: column; margin-right: 20px;">
+        <label for="folderPicker" class="form-label">Select folder</label>
+        <button class="btn btn-secondary" @onclick="PickFolder" style="margin-bottom: 10px;">Pick Folder</button>
+    </div>
+</div>
+
+@code {
+    private string selectedFolder;
+    [Inject] private IJSRuntime JSRuntime { get; set; }
+
+    private async Task PickFolder()
+    {
+        selectedFolder = await JSRuntime.InvokeAsync<string>( "pickFolder" );
+        if( string.IsNullOrEmpty( selectedFolder ) )
+        {
+            return;
+        }
+
+        string tempFolderPath = Path.Combine( Path.GetTempPath(), "TempFolderToZip" );
+        string outputZipPath = Path.Combine( Path.GetTempPath(), "compressed_folder.zip" );
+
+        try
+        {
+            // Create temporary folder and copy selected folder contents
+            if( Directory.Exists( tempFolderPath ) )
+            {
+                Directory.Delete( tempFolderPath, true );
+            }
+            Directory.CreateDirectory( tempFolderPath );
+
+            foreach( var dirPath in Directory.GetDirectories( selectedFolder, "*", SearchOption.AllDirectories ) )
+            {
+                Directory.CreateDirectory( dirPath.Replace( selectedFolder, tempFolderPath ) );
+            }
+
+            foreach( var newPath in Directory.GetFiles( selectedFolder, "*.*", SearchOption.AllDirectories ) )
+            {
+                File.Copy( newPath, newPath.Replace( selectedFolder, tempFolderPath ), true );
+            }
+
+            // Create zip file
+            Xceed.FileSystem.AbstractFile zipFile = new Xceed.FileSystem.DiskFile( outputZipPath );
+            if( zipFile.Exists )
+                zipFile.Delete();
+
+            var zip = new ZipArchive( zipFile );
+            var folder = new Xceed.FileSystem.DiskFolder( tempFolderPath );
+            folder.CopyTo( zip, true );
+
+            // Download zip file
+            var fileBytes = await File.ReadAllBytesAsync( outputZipPath );
+            await JSRuntime.InvokeVoidAsync( "BlazorDownloadFile", "compressed_folder.zip", Convert.ToBase64String( fileBytes ) );
+        }
+        catch( Exception ex )
+        {
+            await JSRuntime.InvokeVoidAsync( "consoleLog", ex.Message );
+        }
+        finally
+        {
+            // Clean up
+            if( File.Exists( outputZipPath ) )
+            {
+                File.Delete( outputZipPath );
+            }
+            if( Directory.Exists( tempFolderPath ) )
+            {
+                Directory.Delete( tempFolderPath, true );
+            }
+        }
+    }
+}

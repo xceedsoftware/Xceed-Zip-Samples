@@ -1,0 +1,110 @@
+﻿<Window x:Class="Xceed.Wpf.Zip.Sample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Xceed.Wpf.Zip.Sample"
+        mc:Ignorable="d"
+        Title="Xceed Zip Sample for WPF"
+        Height="450"
+        Background="#101010"        
+        Icon="logox.ico"
+        Width="800">
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition />
+      <ColumnDefinition />
+    </Grid.ColumnDefinitions>
+    <StackPanel Orientation="Vertical"
+                HorizontalAlignment="Center"
+                Margin="10,10,0,0">
+      <TextBlock Text="Select a button to check how Xceed.Zip works!!!" 
+                 Foreground="White"
+                 FontSize="16"/>
+      <Button Name="CompressFileButton"
+              HorizontalAlignment="Left"
+              Width="220"
+              Background="#FE671A"
+              Height="40"
+              Click="CompressFileButton_Click"
+              Margin="10">
+        <StackPanel Orientation="Vertical">
+          <TextBlock Text="Select a file or many and save as zip"
+                     FontWeight="Bold"
+                     Foreground="White" />
+          <ProgressBar x:Name="CompressFileButtonProgress"
+                       Visibility="Hidden"
+                       Height="5"
+                       IsIndeterminate="True" />
+        </StackPanel>
+      </Button>
+      <Button x:Name="CompressFolderButton"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Background="#FE671A"
+              Width="220"
+              Height="40"
+              Click="CompressFolderButton_Click"
+              Margin="10">
+        <StackPanel Orientation="Vertical">
+          <TextBlock Text="Select a folder and save as Zip"
+                     FontWeight="Bold"
+                     Foreground="White" />
+          <ProgressBar x:Name="CompressFolderButtonProgress"
+                       Visibility="Hidden"
+                       Height="5"
+                       IsIndeterminate="True" />
+        </StackPanel>
+      </Button>
+      <Button x:Name="ListZipContentButton"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Width="220"
+              Background="#FE671A"
+              Height="40"
+              Click="ListZipContentButton_Click"
+              Margin="10">
+        <StackPanel Orientation="Vertical">
+          <TextBlock Text="Select a zip to list the content"
+                     FontWeight="Bold"
+                     Foreground="White" />
+          <ProgressBar x:Name="ListZipContentProgress"
+                       Visibility="Hidden"
+                       Height="5"
+                       IsIndeterminate="True" />
+        </StackPanel>
+      </Button>
+      <Button Name="UnzipFilesButton"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Width="220"
+              Height="40"
+              Background="#FE671A"
+              Click="Unzip_Click"
+              Margin="10">
+        <StackPanel Orientation="Vertical">
+          <TextBlock Text="Select a zip file to decompress"
+                     FontWeight="Bold"
+                     Foreground="White" />
+          <ProgressBar x:Name="UnzipFilesProgress"
+                       Visibility="Hidden"
+                       Height="5"
+                       IsIndeterminate="True" />
+        </StackPanel>
+      </Button>
+    </StackPanel>
+
+    <TextBlock Text="Zip elements:"
+               Foreground="White"
+               FontWeight="Bold"
+               Margin="0,10,0,0"
+               Grid.Column="1" />
+    <ListBox x:Name="ListBoxZipContent"
+             BorderThickness="2"
+             Background="#121314"
+             BorderBrush="#FE671A"
+             Foreground="White"
+             Grid.Column="1"
+             Margin="0,30,10,10" />
+  </Grid>
+</Window>

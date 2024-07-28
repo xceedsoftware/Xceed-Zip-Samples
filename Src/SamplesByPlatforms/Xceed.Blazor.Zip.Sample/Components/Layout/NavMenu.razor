@@ -1,0 +1,25 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <img src="images/logox.png" alt="Logo" width="40" height="40" />
+        <a class="navbar-brand" href="">Xceed Zip Sample</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3 bold-text">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All" style="font-weight: bold;">
+                Compress files
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="listzip" style="font-weight: bold;">
+                List element
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
