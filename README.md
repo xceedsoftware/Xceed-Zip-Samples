@@ -25,7 +25,7 @@ For more information, please visit the [official product page](https://xceed.com
 - Supports the latest zip file format standards
 - Used and trusted by Microsoft in their server products
 - Supports .NET 4.5, 5, 6 and 7 (including .NET core and .NET Standard)
-- 
+  
 ## Getting Started with the Xceed Zip for .NET
 
 To get started, clone this repository and explore the various sample projects provided. Each sample demonstrates different features and capabilities of Xceed Zip for .NET.
@@ -35,7 +35,7 @@ To get started, clone this repository and explore the various sample projects pr
 - .NET Framework 4.0 or later
 - .NET 5.0 or later
 
-### 1. Installing the DataGrid from nuget
+### 1. Installing the Zip for .NET from nuget
 To install the Xceed Zip for .NET from NuGet, follow these steps:
 
 1. **Open your project in Visual Studio.**
@@ -53,28 +53,100 @@ To install the Xceed Zip for .NET from NuGet, follow these steps:
 
 ![Nuget library](./Resources/nuget_sample.png)
 
-### 2. Adding a DataGrid to the XAML
+### 2. Refering Xceed Zip for .NET library
 
-To add a DataGrid to your XAML, follow these steps:
-
-1. **Open your XAML file (e.g., MainWindow.xaml).**
-2. **Add the following namespace at the top of your XAML file:**
-   ```xaml
-   xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+1. **Add the reference with using statement at the top of the class**
    ```
-3. **Add the DataGrid control to your layout:**
-   ```xaml
-   <xcdg:DataGridControl x:Name="myDataGrid"
-                         AutoCreateColumns="True"
-                         ItemsSource="{Binding YourDataSource}" />
+   using Xceed.Zip;
    ```
-4. Ensure your DataContext is set to an appropriate data source in your code-behind or ViewModel.
+   
+2. **Use the classes and elements from the namespace**
+   ```c#
+   using Xceed.Zip;
 
-### 3. How to License the Product Using the LicenseKey Property
+   namespace BlazeDocX.Services
+   {
+       public class ZipSample
+       {
+            public void QuickZipSample()
+            {
+               QuickZip.Zip( @"d:\test.zip", @"d:\file.txt" );
+            }
+   
+            public void QuickUnZipSample()
+            {
+               QuickZip.Unzip( @"d:\test.zip", @"d:\", true, true, false, "*" );
+            }
+   
+            public QuickZipItem[] QuickGetContent()
+            {
+               QuickZipItem[] items = QuickZip.GetZipContents( @"c:\test.zip", "*" );
+               return items;
+            }
+   
+            public void QuickRemoveZip()
+            {
+               QuickZip.Remove( @"d:\test\files.zip", "old*" );
+            }
+       }
+   }
+   ```
+
+   ### 3. A quick sample
+   
+   How to Zip and UnZip a file in .NET C# in seconds!
+   
+   Xceed Zip for .NET makes manipulating Zip files in C# very easy and simple.
+
+   First launched in 2002 for .NET 1.0, Xceed Zip for .NET has been updated frequently ever since by our developers. It allows to quickly Zip and Unzip files using C# or Visual Basic for .NET code. 
+   
+   Note that the following example is done in C#, but that the Visual Basic for .NET code will be very similar.
+   
+   Also note that this code is compatible with .NET Standard, .NET Core, .NET 5 and .NET 6. Should you have an older project that also needs help from Xceed Zip for .NET, it is also compatible with all legacy versions of the .NET Framework. 
+   
+   So let's get to it!
+   
+   There are 2 ways we can go about compressing. The easiest way is to use our QuickZip class.
+   
+   If your scenarios are simple, this may just be the solution you need:
+   
+   ```csharp
+   Xceed.Zip.QuickZip.Zip(@"c:ResultZipZippedFile.zip", true, true, false, @"c:FilesToZip*.*");
+   ```
+   
+   To find all the different options and parameters related to this class, go [here](https://doc.xceed.com/xceed-filesystem-for-net/topic9402.html).
+   
+   As you just saw, you can create a zip archive from a file or folder using just 1 line of code. Isn't that fantastic!
+   
+   Xceed Zip for .NET is pretty much limitless and is very flexible. Here's a more complex example:
+   
+   ```csharp
+   //Zip Archive Approach
+   ZipArchive zipFile = new ZipArchive(new DiskFile(@"c:ResultZipZippedFileArchive.zip"));
+   DiskFolder folder = new DiskFolder(@"c:FilesToZip");
+   folder.CopyFilesTo(zipFile, true, true);
+   ```    
+   
+   To UnZip, simply do the operations in reverse. It really is that simple and easy!
+   ```csharp
+   Xceed.Zip.QuickZip.Unzip(...)
+   ```
+   Same as the Zip Archive approach, but this time you do the reverse operations:
+   ```csharp
+   ZipArchive zipFile = new ZipArchive(new DiskFile(@"c:ResultZipZippedFileArchive.zip"));
+   DiskFolder folder = new DiskFolder(@"c:FilesToZip");
+   zipFile2.CopyFilesTo(folder , true, true);
+   ```
+   
+   Xceed Zip for .NET offers a ton more functionalities! If you need more information, all functionalities are documented [here](https://doc.xceed.com/xceed-filesystem-for-net/webframe.html#topic87.html) (including encryption and different compression algorithms):
+
+   ### 4. How to License the Product Using the LicenseKey Property
 To license the Xceed Zip for .NET using the LicenseKey property, follow these steps:
 
 1. **Obtain your license key** from Xceed. (Download the product from xceed.com or send us a request at support@xceed.com
 2. **Set the LicenseKey property in your application startup code:**
+
+   2.1 In case of WPF or Desktop app could be in the MainWindow
    ```csharp
    using System.Windows;
 
@@ -83,56 +155,31 @@ To license the Xceed Zip for .NET using the LicenseKey property, follow these st
        public MainWindow()
        {
            InitializeComponent();
-           Xceed.Wpf.DataGrid.Licenser.LicenseKey = "Your-Key-Here";
+           Xceed.Zip.Licenser.LicenseKey = "XXXX-XXXX-XXXX-XXXX";
        }
    }
    ```
-3. Ensure the license key is set before any DataGrid control is instantiated.
-
-## Examples Overview
-
-Below is a list of the examples available in this repository:
-
-- **AsyncBinding**: Demonstrates how to bind the DataGrid asynchronously.
-- **BatchUpdating**: Shows how to perform batch updates in the DataGrid.
-- **CardView**: Provides an example of displaying data in a card view layout.
-- **ColumnChooser**: Demonstrates how to implement a column chooser for the DataGrid.
-- **ColumnManagerRow**: Shows how to use a column manager row.
-- **CustomFiltering**: Demonstrates custom filtering techniques.
-- **CustomViews**: Provides examples of custom views in the DataGrid.
-- **DataVirtualization**: Shows how to use data virtualization to enhance performance.
-- **EditModes**: Demonstrates various edit modes available in the DataGrid.
-- **Exporting**: Provides examples of exporting data to different formats.
-- **FlexibleBinding**: Shows how to bind data flexibly.
-- **FlexibleRowsColumn**: Demonstrates flexible row and column configurations.
-- **Formatting**: Provides examples of data formatting.
-- **Grouping**: Demonstrates grouping data in the DataGrid.
-- **IncludedEditors**: Shows how to use included editors.
-- **LargeDataSets**: Demonstrates handling large datasets.
-- **LiveUpdating**: Shows how to update data live.
-- **MasterDetail**: Demonstrates master-detail views.
-- **MergedHeaders**: Shows how to create merged headers.
-- **MultiView**: Demonstrates multiple view configurations.
-- **MVVM**: Provides examples of using MVVM pattern with the DataGrid.
-- **PersistSettings**: Shows how to persist settings.
-- **Printing**: Demonstrates printing capabilities.
-- **Selection**: Shows how to handle selection in the DataGrid.
-- **SpannedCells**: Demonstrates cell spanning techniques.
-- **SummariesAndTotals**: Shows how to implement summaries and totals.
-- **Tableflow**: Demonstrates table flow layout.
-- **TableView**: Shows how to use the table view.
-- **Theming**: Demonstrates theming capabilities.
-- **TreeGridflowView**: Shows how to implement a tree grid flow view.
-- **Validation**: Demonstrates data validation techniques.
-- **Views3D**: Provides examples of 3D views.
+   2.2 In case of ASP.NET application must be in Program.cs class
+   ```csharp
+   using System.Net;
+   using System.Text.Json;
+   using System.Text.Json.Serialization;
+   ...
+   using Xceed.Document.NET;
+   ...
+   Xceed.Zip.Licenser.LicenseKey = "XXXX-XXXX-XXXX-XXXX";
+   ...
+   var builder = WebAssemblyHostBuilder.CreateDefault(args);
+   ```
+4. Ensure the license key is set before any Zip class, instance or similar control is instantiated.
 
 ## Getting Started with the Samples
 
 To get started with these examples, clone the repository and open the solution file in Visual Studio.
 
 ```bash
-git clone https://github.com/your-repo/xceed-datagrid-wpf-examples.git
-cd xceed-datagrid-wpf-examples
+git clone https://github.com/your-repo/Xceed-Zip-Samples.git
+cd xceed-zip-samples
 ```
 Open the solution file in Visual Studio and build the project to restore the necessary NuGet packages.
 
@@ -143,7 +190,7 @@ Open the solution file in Visual Studio and build the project to restore the nec
   
 ## Documentation
 
-For more information on how to use the Xceed Zip for .NET, please refer to the [official documentation](https://doc.xceed.com/xceed-datagrid-for-wpf/webframe.html#rootWelcome.html).
+For more information on how to use the Xceed Zip for .NET, please refer to the [official documentation](https://doc.xceed.com/xceed-filesystem-for-net/webframe.html#topic46.html).
 
 ## Licensing
 
