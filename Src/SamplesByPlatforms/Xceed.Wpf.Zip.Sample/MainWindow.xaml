@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Xceed Zip Sample for WPF"
         Height="450"
-        Background="#101010"        
-        Icon="logox.ico"
+        Background="#101010"
+        Icon="/logox.ico"
         Width="800">
   <Grid>
     <Grid.ColumnDefinitions>
@@ -18,9 +18,9 @@
     <StackPanel Orientation="Vertical"
                 HorizontalAlignment="Center"
                 Margin="10,10,0,0">
-      <TextBlock Text="Select a button to check how Xceed.Zip works!!!" 
+      <TextBlock Text="Select a button to check how Xceed.Zip works!!!"
                  Foreground="White"
-                 FontSize="16"/>
+                 FontSize="16" />
       <Button Name="CompressFileButton"
               HorizontalAlignment="Left"
               Width="220"
