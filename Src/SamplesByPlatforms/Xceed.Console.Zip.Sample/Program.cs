@@ -3,7 +3,7 @@ using Xceed.FileSystem;
 using Xceed.Zip;
 
 Console.Title = "Xceed Zip Sample for .NET";
-Xceed.Zip.Licenser.LicenseKey = "XXXXX-XXXXX-XXXXX-YYYY";
+Xceed.Zip.Licenser.LicenseKey = "LICENSE_PLACEHOLDER";
 
 bool opened = false;
 while( true )
