@@ -12,7 +12,7 @@ namespace Xceed.Winform.Zip.Sample
 		public Form1()
 		{
 			InitializeComponent();
-			Xceed.Zip.Licenser.LicenseKey = "LICENSE_PLACEHOLDER";
+			Xceed.Zip.Licenser.LicenseKey = "LICENSE_KEY_PLACEHOLDER";
 		}
 
 		private async void CompressFileButton_Click( object sender, EventArgs e )

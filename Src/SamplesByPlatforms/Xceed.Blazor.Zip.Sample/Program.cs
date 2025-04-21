@@ -1,5 +1,5 @@
 using Xceed.Blazor.Zip.Sample.Components;
-Xceed.Zip.Licenser.LicenseKey = "LICENSE_PLACEHOLDER";
+Xceed.Zip.Licenser.LicenseKey = "LICENSE_KEY_PLACEHOLDER";
 
 var builder = WebApplication.CreateBuilder( args );
 
