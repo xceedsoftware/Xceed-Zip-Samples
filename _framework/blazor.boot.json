@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Xceed.Blazor.Zip.Sample",
   "resources": {
-    "hash": "sha256-BYlDDWXWpXkDE+iLqn1ApKglj/tDU4oUezGNv2dNFpQ=",
+    "hash": "sha256-ydumktDjbJKCFuowZJenVbU4Qze3Z+HCqySg00WTLe4=",
     "fingerprinting": {
       "Microsoft.AspNetCore.Components.5zml56hrpe.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Web.n1maj9h3oe.wasm": "Microsoft.AspNetCore.Components.Web.wasm",
@@ -43,7 +43,7 @@
       "System.Text.Json.ihi8l1zdy2.wasm": "System.Text.Json.wasm",
       "System.Text.RegularExpressions.0e9rlv7vxy.wasm": "System.Text.RegularExpressions.wasm",
       "System.5elbyj45bb.wasm": "System.wasm",
-      "Xceed.Blazor.Zip.Sample.o86hr8yksy.wasm": "Xceed.Blazor.Zip.Sample.wasm",
+      "Xceed.Blazor.Zip.Sample.xu9tprbtq6.wasm": "Xceed.Blazor.Zip.Sample.wasm",
       "Xceed.Compression.Formats.NETStandard.ro26kbbarl.wasm": "Xceed.Compression.Formats.NETStandard.wasm",
       "Xceed.Compression.NETStandard.jgthq205br.wasm": "Xceed.Compression.NETStandard.wasm",
       "Xceed.FileSystem.NETStandard.d6s4034kuc.wasm": "Xceed.FileSystem.NETStandard.wasm",
@@ -114,7 +114,7 @@
       "System.Text.Json.ihi8l1zdy2.wasm": "sha256-aqcy9X1zrznXyAo+za+Dxb7QZzg4HNhWVG/ONnAr4U0=",
       "System.Text.RegularExpressions.0e9rlv7vxy.wasm": "sha256-SKkTQL9D0Loskr+NX705/WITcRNb/8VQlQorMrz5S6M=",
       "System.5elbyj45bb.wasm": "sha256-DU80cb+q/FRT6p717yEYKDPH28wY9Ot1t3xB+9tUIpY=",
-      "Xceed.Blazor.Zip.Sample.o86hr8yksy.wasm": "sha256-KIuJAAp4spyjCWVa873oEcF35SuVsSnABRNV5v6OqHE=",
+      "Xceed.Blazor.Zip.Sample.xu9tprbtq6.wasm": "sha256-KcyJnsA9uAQDWKsblLRec5ncJi7ELW3Pn5c+Pzw+MAE=",
       "Xceed.Compression.Formats.NETStandard.ro26kbbarl.wasm": "sha256-GyNtBmHBixxNpzamD+RUGVqSsMfQcCSDJjMRGSdqHfg=",
       "Xceed.Compression.NETStandard.jgthq205br.wasm": "sha256-nW5VDJKysIuk07SVJHFuGn7g+pGmTWOfctqj2v7iidI=",
       "Xceed.FileSystem.NETStandard.d6s4034kuc.wasm": "sha256-W2z19ugyBu7gDZy6ZlP6LmddspGJ8ZoQMCvZY7cAxQ0=",
