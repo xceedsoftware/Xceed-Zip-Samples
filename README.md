@@ -1,4 +1,4 @@
-![NuGet Downloads](https://img.shields.io/nuget/dt/Xceed.Products.Zip.Full) ![Static Badge](https://img.shields.io/badge/.Net_Framework-4.0%2B-blue) ![Static Badge](https://img.shields.io/badge/.Net-5.0%2B-blue) [![Learn More](https://img.shields.io/badge/Learn-More-blue?style=flat&labelColor=gray)](https://xceed.com/en/our-products/product/zip-for-net)
+![NuGet Downloads](https://img.shields.io/nuget/dt/Xceed.Products.Zip.Full) ![Static Badge](https://img.shields.io/badge/.Net_Framework-4.0%2B-blue) ![Static Badge](https://img.shields.io/badge/.Net-5.0%2B-blue) [![Learn More](https://img.shields.io/badge/Learn-More-blue?style=flat&labelColor=gray)](https://xceed.com/en/our-products/product/zip-for-net) [![See Demo](https://img.shields.io/badge/Simple_Live_Demo-▶-brightgreen)](https://xceedsoftware.github.io/Xceed-Zip-Samples/)
 
 [![Xceed Zip for .NET](./Resources/zip_banner.png)](https://xceed.com/en/our-products/product/zip-for-net)
 
